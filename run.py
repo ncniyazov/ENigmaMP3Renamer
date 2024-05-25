@@ -28,15 +28,27 @@ def rename_mp3_files():
 
 # Create the main window
 app = ctk.CTk()
-app.title("Enigma MP3 Renamer v1.1 @ncniyazov")
-app.geometry("600x200")
+app.title("Enigma MP3 Renamer v1.2 @ncniyazov")
+app.geometry("500x200")
+
+# Add horizontal line before text
+canvas_top = tk.Canvas(app, width=400, height=2, bg="black", bd=0, highlightthickness=0)
+canvas_top.create_line(0, 1, 400, 1, fill="gray")
+canvas_top.pack(pady=(10, 5))
 
 # Add a label with instructions
 label = ctk.CTkLabel(
     app,
     text="MP3 fayllarını yenidən adlandırmaq və kopyalamaq üçün qovluğu seç.\nQovluğu seçdikdən sonra \nyenidən adlandırma və kopyalama prosesi avtomatik başlayacaq.\nYenidən adlandırma və kopyalama bitəndən sonra bu barədə bildiriş çıxacaq.",
 )
-label.pack(pady=15)
+label.pack(pady=(5, 5))
+
+# Add horizontal line after text
+canvas_bottom = tk.Canvas(
+    app, width=400, height=2, bg="black", bd=0, highlightthickness=0
+)
+canvas_bottom.create_line(0, 1, 400, 1, fill="gray")
+canvas_bottom.pack(pady=(5, 10))
 
 # Add a button to open the folder dialog and rename files
 select_button = ctk.CTkButton(app, text="Qovluğu seç", command=rename_mp3_files)
